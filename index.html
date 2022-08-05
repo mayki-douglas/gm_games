@@ -6,29 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GM Games</title>
     <link rel="stylesheet" href="src/View/css/style.css" />
+    <link rel="stylesheet" href="src/View/css/brands.css"/>
+    <link rel="stylesheet" href="src/View/css/all.min.css"/>
 </head>
 <body>
-    <div name="title">
-        <h1 class="flex justify-center">Welcome to GM Games</h1>
+    <div class="bg-local bg-center bg-cover">
+        <img src="./src/View/img/bg_index.jpg" alt="" class="min-w-full h-96">
+    </div>
+    <h1 class="flex justify-center text-center">Welcome to GM Games</h1>
+    </div>
+    <div name="login" class="flex justify-end">
+        <button class="p-5 hover:text-blue-800" >
+            <i class="fa-solid fa-address-card"></i>
+            Login
+        </button>
     </div>
     <section name="plataformas" class="flex justify-between p-5">
-        <button class="flex justify-center p-2 transition-colors border border-blue-700 rounded w-72 hover:bg-blue-700">
-            Ps4
-        </button>
-        <button class="flex justify-center p-2 transition-colors border border-green-600 rounded w-72 hover:bg-green-600">
-            Xbox
-        </button>
-        <button class="flex justify-center p-2 transition-colors border border-red-600 rounded w-72 hover:bg-red-600">
-            Nintendo
-        </button>
-        <button class="flex justify-center p-2 transition-colors border border-gray-700 rounded w-72 hover:bg-gray-700">
-            Steam
-        </button>
+        <article>
+            <p>Clique para ver os jogos de PS4</p>
+            <button class="flex justify-center p-2 transition-colors border border-blue-700 rounded w-72 hover:bg-blue-700">
+                <i class="fa-brands fa-playstation">Ps4</i>
+            </button>
+        </article>
+        <article>
+            <p>Clique para ver os jogos de Xbox</p>
+            <button class="flex justify-center p-2 transition-colors border border-green-600 rounded w-72 hover:bg-green-600">
+            <i class="fa-brands fa-xbox">Xbox</i>
+            </button>
+        </article>
+        <article>
+            <p>Clique para ver os jogos de Nintendo</p>
+            <button class="flex justify-center p-2 transition-colors border border-red-600 rounded w-72 hover:bg-red-600">
+            <i class="fa-brands fa-fantasy-flight-games">Nintendo</i>
+            </button>
+        </article>
+        <article>
+            <p>Clique para ver os jogos da Steam</p>
+            <button class="flex justify-center p-2 transition-colors border border-gray-700 rounded w-72 hover:bg-gray-700">
+                <i class="fa-brands fa-steam">Steam</i>
+                </button>
+        </article>
     </section>
     <section>
         <div class="flex justify-center">
-            <button class="p-2 border border-blue-400 rounded hover:text-gray-600">
-                See all games
+            <button class="p-2 border border-blue-400 rounded hover:text-gray-600"><a href="src/View/list_products.php">
+                Ver catálogo completo
+            </a>
             </button>
         </div>
     </section>
