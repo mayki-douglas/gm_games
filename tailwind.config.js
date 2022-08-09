@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     "index.html",
+    "login.html",
     "src/view/**/*.{html,php}"
   ],
   theme: {

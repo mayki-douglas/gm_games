@@ -553,6 +553,7 @@ video {
 
 .flex {
   display: flex;
+<<<<<<< HEAD
 }
 
 .table {
@@ -561,6 +562,8 @@ video {
 
 .hidden {
   display: none;
+=======
+>>>>>>> 80cf66ad91f735b45ebbccdb1247fe81a11e5e9c
 }
 
 .h-96 {
@@ -640,6 +643,19 @@ video {
   padding: 0.5rem;
 }
 
+<<<<<<< HEAD
+=======
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+>>>>>>> 80cf66ad91f735b45ebbccdb1247fe81a11e5e9c
 .text-center {
   text-align: center;
 }
