@@ -551,14 +551,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.m-16 {
-  margin: 4rem;
-}
-
-.m-48 {
-  margin: 12rem;
-}
-
 .flex {
   display: flex;
 }
@@ -640,12 +632,14 @@ video {
   padding: 0.5rem;
 }
 
-.p-10 {
-  padding: 2.5rem;
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
-.p-20 {
-  padding: 5rem;
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .text-center {
