@@ -6,8 +6,6 @@ module.exports = {
     "src/view/**/*.{html,php}"
   ],
   theme: {
-    extend: {
-    },
   },
   plugins: [],
 }

@@ -8,52 +8,52 @@
     <title>Catálogo Completo</title>
 </head>
 <body>
-    <h1>Catálogo completo de jogos</h1>
-    <table>
-        <thead>
-            <th>#</th>
-            <th>Nome</th>
-            <th>Preço</th>
-            <th>Quantidade em estoque</th>
-            <th>Plataforma</th>
-            <th>Funções</th>
+    <div class="bg-wine">
+    <h1 class="flex justify-center p-5 font-bold">Catálogo completo de jogos</h1>
+    <table class="m-auto">
+        <thead class="p-5">
+            <th class="border border-black">#</th>
+            <th class="border border-black">Nome</th>
+            <th class="border border-black">Preço</th>
+            <th class="border border-black">Quantidade em estoque</th>
+            <th class="border border-black">Plataforma</th>
+            <th class="border border-black">Funções</th>
         </thead>
-        <tbody>
+        <tbody class="text-center">
             <?php
             session_start();
-            foreach ($_SESSION['list_products'] as $products) : ?>
-            <tr>
-                <td>
-                    <?= $products['id_product'] ?>
+            foreach ($_SESSION['list_products'] as $product) : ?>
+            <tr class="border border-black">
+                <td class="w-5 border border-black">
+                    <?= $product['id_product'] ?>
+                </td>
+                <td class="border border-black">
+                    <?= $product['product_name'] ?>
+                </td>
+                <td class="border border-black">
+                    R$ <?= str_replace(".", ",", $product['product_price']) ?>
+                </td>
+                <td class="border border-black">
+                    <?= $product['product_quantity'] ?>
+                </td>
+                <td class="border border-black">
+                    <?= $product['product_platform'] ?>
                 </td>
                 <td>
-                    <?= $products['product_name'] ?>
-                </td>
-                <td>
-                    R$ <?= str_replace(".", ",", $products['product_price']) ?>
-                </td>
-                <td>
-                    <?= $products['product_quantity'] ?>
-                </td>
-                <td>
-                    <?= $products['product_platform'] ?>
-                </td>
-                <td>
-                    <a href="../Controller/Product.php?operation=find&code=<?= $products["id_product"] ?>">Editar</a>
-                    <a href="../Controller/Product.php?operation=remove&code=<?= $products["id_product"] ?>">Remover</a>
+                    <a href="../Controller/Product.php?operation=find&code=<?= $product["id_product"] ?>">Editar</a>
+                    <a class="text-red-500" href="../Controller/Product.php?operation=remove&code=<?= $product["id_product"] ?>">Remover</a>
                 </td>
             </tr>
             <?php
             endforeach; ?>
         </tbody>
     </table>
-    <section>
-        <button><a href="form_product.php">Cadastrar novo Jogo</a></button>
-    </section>
-    <section>
-        <article>
-            <button><a href="../../index.html">Voltar a home</a></button>
+    <section class="flex p-5">
+        <article class="m-auto">
+            <button class="p-2 transition-colors border border-blue-700 rounded hover:bg-blue-700"><a href="form_product.php">Cadastrar novo Jogo</a></button>
+            <button class="p-2 transition-colors border border-red-700 rounded hover:bg-red-700"><a href="../../index.html">Voltar a home</a></button>
         </article>
     </section>
+    </div>
 </body>
 </html>
