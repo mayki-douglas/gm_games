@@ -21,26 +21,26 @@
         <tbody>
             <?php
             session_start();
-            foreach ($_SESSION['list_products'] as $product) : ?>
+            foreach ($_SESSION['list_products'] as $products) : ?>
             <tr>
                 <td>
-                    <?= $product['id_product'] ?>
+                    <?= $products['id_product'] ?>
                 </td>
                 <td>
-                    <?= $product['product_name'] ?>
+                    <?= $products['product_name'] ?>
                 </td>
                 <td>
-                    R$ <?= str_replace(".", ",", $product['product_price']) ?>
+                    R$ <?= str_replace(".", ",", $products['product_price']) ?>
                 </td>
                 <td>
-                    <?= $product['product_quantity'] ?>
+                    <?= $products['product_quantity'] ?>
                 </td>
                 <td>
-                    <?= $product['product_platform'] ?>
+                    <?= $products['product_platform'] ?>
                 </td>
                 <td>
-                    <a href="../Controller/Product.php?operation=find&code<?= $product["id_product"] ?>">Editar</a>
-                    <a href="../Controller/Product.php?operation=remove&code<?= $product["id_product"] ?>">Remover</a>
+                    <a href="../Controller/Product.php?operation=find&code=<?= $products["id_product"] ?>">Editar</a>
+                    <a href="../Controller/Product.php?operation=remove&code=<?= $products["id_product"] ?>">Remover</a>
                 </td>
             </tr>
             <?php

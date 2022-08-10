@@ -15,6 +15,7 @@ class ProductDAO implements DAO
         $stmt->bindParam(2, $object->price);
         $stmt->bindParam(3, $object->quantity);
         $stmt->bindparam(4, $object->platform);
+        return $stmt->execute();
     }
     public function findOne($id)
     {
@@ -31,7 +32,7 @@ class ProductDAO implements DAO
     public function update($object)
     {
         $connection = Connection::getConnection();
-        $stmt = $connection->prepare("UPDATE product SET product_name=?, product_price=?, product_quantity=?, product_platform=? WHERE id_product=?");
+        $stmt = $connection->prepare("UPDATE product SET product_name=?, product_price=?, product_quantity=?, product_platform=? WHERE id_product=?;");
         $stmt->bindParam(1, $object->name);
         $stmt->bindParam(2, $object->price);
         $stmt->bindParam(3, $object->quantity);

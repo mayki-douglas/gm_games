@@ -14,25 +14,25 @@
             <section>
                 <article>
                     <label for="name">Nome do Produto</label>
-                    <input type="text">
+                    <input type="text" id="name" name="name">
                 </article>
                 <article>
                     <label for="price">Preço</label>
-                    <input type="number">
+                    <input type="number" id="price", name="price">
                 </article>
             </section>
             <section>
                 <article>
                     <label for="quantity">Quantidade</label>
-                    <input type="number">
+                    <input type="number" id="quantity", name="quantity">
                 </article>
                 <article>
                     <label for="platform">Plataforma</label>
                     <select name="platform" id="platform">
-                        <option value="1">Playstation</option>
-                        <option value="2">Xbox</option>
-                        <option value="3">Nintendo</option>
-                        <option value="4">Steam</option>
+                        <option value="Playstation">Playstation</option>
+                        <option value="Xbox">Xbox</option>
+                        <option value="Nintendo">Nintendo</option>
+                        <option value="Steam">Steam</option>
                     </select>
                 </article>
             </section>

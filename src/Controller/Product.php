@@ -38,20 +38,33 @@ function insertProduct()
     }
 
     $productName = $_POST["name"];
-    $productPrice = str_replace(",", ".", $_POST["price"]);
-    $productQuantity = $_POST["quantity"];
-    $productPlatform = $_POST["platform"];
+    $productPrice = str_replace(".", ",", $_POST["price"]);
+    $quantity = $_POST["quantity"];
+    $platform = $_POST["platform"];
 
-    try {
-        $dao = new ProductDAO();
-        $result = $dao->insert($product);
-        if ($result) {
-            Redirect::redirect(message: "O Jogo $productName foi cadastrado com sucesso!");
-        } else {
-            Redirect::redirect(message: "Não foi possível cadastrar o jogo $productName", type: 'error');
+    $error = array();
+
+    if($error) {
+        Redirect::redirect(message: $error, type: 'error');
+    } else {
+        $products = new Product(
+            name: $productName,
+            price: $productPrice,
+            quantity: $quantity,
+            platform: $platform
+        );
+
+        try {
+            $dao = new ProductDAO();
+            $result = $dao->insert($products);
+            if ($result) {
+                Redirect::redirect(message: "O Jogo $productName foi cadastrado com sucesso!");
+            } else {
+                Redirect::redirect(message: "Não foi possível cadastrar o jogo $productName", type: 'error');
+            }
+        } catch (PDOException $e){
+            Redirect::redirect(message: "Houve um erro inesperado :(", type: 'error');
         }
-    } catch (PDOException $e){
-        Redirect::redirect(message: "Houve um erro inesperado :(", type: 'error');
     }
 }
 
@@ -74,33 +87,42 @@ function listProduct()
 
 function removeProduct()
 {
-    try {
-        $dao = new ProductDAO();
-        $result = $dao->delete($code);
-        if ($result) {
-            Redirect::redirect(message: "O jogo $product_name foi removido", type: 'success');
-        } else {
+    $code = (float) $_GET['code'];
+    $error = array();
+
+    if ($error) {
+        Redirect::redirect($error, type: 'warning');
+    }else{
+        try {
+            $dao = new ProductDAO();
+            $result = $dao->delete($code);
+                if ($result) {
+                    Redirect::redirect(message: "O jogo $product_name foi removido", type: 'success');
+                } else {
             Redirect::redirect(message: ["Não foi possível remover o produto"], type: 'warning');
         }
-    } catch (PDOException $e) {
-        Redirect::redirect("Erro Inesperado", type: 'error');
-    }
+            } catch (PDOException $e) {
+                Redirect::redirect("Erro Inesperado", type: 'error');
+            }
+        }
 }
 
 function findProduct()
 {
+
+    $code = $_GET['code'];
+    $dao = new ProductDAO();
     try {
-        $dao = new ProductDAO();
         $result = $dao->findOne($code);
-        if ($result) {
-            session_start();
-            $_SESSION['product_info'] = $result;
-            header("location:../View/form_edit_product.php");
-        } else {
-            Redirect::redirect(message: "Não localizamos o Game :(", type: 'error');
-        }
     } catch (PDOException $e) {
-        Redirect::redirect(message: "Erro inesperado", type: 'error');
+        Redirect::redirect(message: "Erro inesperado", type:'error');
+    }
+    if($result) {
+        session_start();
+        $_SESSION['product_info'] = $result;
+        header("location:../View/form_edit_product.php");
+    } else {
+        Redirect::redirect(message: "Produto não localizado no Banco", type: 'error');
     }
 }
 
@@ -111,20 +133,36 @@ function editProduct()
         Redirect::redirect(type: 'error', message: 'Operação inválida');
     }
 
+    $code = $_POST["code"];
     $productName = $_POST["name"];
     $productPrice = str_replace(",", ".", $_POST["price"]);
-    $productQuantity = $_POST["quantity"];
-    $productPlatform = $_POST["platform"];
+    $quantity = $_POST["quantity"];
+    $platform = $_POST["platform"];
 
-    try {
+    $error = array();
+
+    if($error) {
+        Redirect::redirect(message: $error, type: 'error');
+    } else {
+        $products = new Product(
+            name: $productName,
+            price: $productPrice,
+            quantity: $quantity,
+            platform: $platform,
+            id: $code
+        );
+        
         $dao = new ProductDAO();
-        $result = $dao->update($product);
-        if ($result) {
-            Redirect::redirect(message: "O Jogo $productName foi atualizado com sucesso!");
-        } else {
-            Redirect::redirect(message: "Não foi possível cadastrar o jogo $productName", type: 'error');
+        try {
+            $result = $dao->update($products);
+        } catch (PDOException $e) {
+            Redirect::redirect("Erro inesperado", type: 'error');
         }
-    } catch (PDOException $e){
-        Redirect::redirect(message: "Houve um erro inesperado :(", type: 'error');
+
+        if ($result) {
+            Redirect::redirect(message: "Produto atualizado com sucesso", type: 'success');
+        } else {
+            Redirect::redirect(message: ['Não foi possível atualizar o produto']);
+        }
     }
 }
