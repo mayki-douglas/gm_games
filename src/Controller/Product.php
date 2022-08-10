@@ -26,6 +26,18 @@ switch ($_GET['operation'])
     case 'edit':
         editProduct();
         break;
+    case 'find_one_ps4':
+        findOneProductPlaystation();
+        break;
+    case 'find_one_xbox':
+        findOneXbox();
+        break;
+    case 'find_one_nintendo':
+        findOneNintendo();
+        break;
+    case 'find_one_steam':
+        findOneSteam();
+        break;
     default:
         Redirect::redirect(message: "Operação inválida :(", type: 'error');
 }
@@ -164,5 +176,73 @@ function editProduct()
         } else {
             Redirect::redirect(message: ['Não foi possível atualizar o produto']);
         }
+    }
+}
+
+function findOneProductPlaystation()
+{
+    try {
+        session_start();
+        $dao = new ProductDAO();
+        $products = $dao->findOneProductPlaystation();
+        if ($products) {
+            $_SESSION['list_products_ps4'] = $products;
+            header('location:../View/list_products_ps4.php');
+        } else {
+            Redirect::redirect(message: ['Não exite produtos cadastrados'], type: 'warning');
+        }
+    } catch (PDOException $e) {
+        Redirect::redirect("Erro Inesperado", type: 'error');
+    }
+}
+
+function findOneXbox()
+{
+    try {
+        session_start();
+        $dao = new ProductDAO();
+        $products = $dao->findOneProductXbox();
+        if ($products) {
+            $_SESSION['list_products_xbox'] = $products;
+            header('location:../View/list_products_xbox.php');
+        } else {
+            Redirect::redirect(message: ['Não exite produtos cadastrados'], type: 'warning');
+        }
+    } catch (PDOException $e) {
+        Redirect::redirect("Erro Inesperado", type: 'error');
+    }
+}
+
+function findOneNintendo()
+{
+    try {
+        session_start();
+        $dao = new ProductDAO();
+        $products = $dao->findOneProductNintendo();
+        if ($products) {
+            $_SESSION['list_products_nintendo'] = $products;
+            header('location:../View/list_products_nintendo.php');
+        } else {
+            Redirect::redirect(message: ['Não exite produtos cadastrados'], type: 'warning');
+        }
+    } catch (PDOException $e) {
+        Redirect::redirect("Erro Inesperado", type: 'error');
+    }
+}
+
+function findOneSteam()
+{
+    try {
+        session_start();
+        $dao = new ProductDAO();
+        $products = $dao->findOneProductSteam();
+        if ($products) {
+            $_SESSION['list_products_steam'] = $products;
+            header('location:../View/list_products_steam.php');
+        } else {
+            Redirect::redirect(message: ['Não exite produtos cadastrados'], type: 'warning');
+        }
+    } catch (PDOException $e) {
+        Redirect::redirect("Erro Inesperado", type: 'error');
     }
 }

@@ -35,10 +35,10 @@
                 <article>
                     <label for="platform">Plataforma</label>
                     <select name="platform" id="platform">
-                        <option value="<?= $products['product_platform'] ?>">Playstation</option>
-                        <option value="<?= $products['product_platform'] ?>">Xbox</option>
-                        <option value="<?= $products['product_platform'] ?>">Nintendo</option>
-                        <option value="<?= $products['product_platform'] ?>">Steam</option>
+                        <option value="Playstation">Playstation</option>
+                        <option value="Xbox">Xbox</option>
+                        <option value="Nintendo">Nintendo</option>
+                        <option value="Steam">Steam</option>
                     </select>
                 </article>
             </section>

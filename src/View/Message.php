@@ -21,7 +21,7 @@
         <?php
         if (!empty($_SESSION['msg_success'])) :
         ?>
-            <article class="w-2/4 text-white bg-green-700 rounded">
+            <article class="w-2/4 text-white bg-blue-700 rounded">
                 <div class="p-9">
                     <p class="text-center">
                         <?= $_SESSION['msg_success'] ?>

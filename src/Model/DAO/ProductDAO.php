@@ -23,6 +23,35 @@ class ProductDAO implements DAO
         $stmt = $connection->query("SELECT * FROM product WHERE id_product = $id");
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function findOneProductPlaystation()
+    {
+        $connection = Connection::getConnection();
+        $stmt = $connection->query("SELECT * FROM product WHERE product_platform = 'Playstation';");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function findOneProductXbox()
+    {
+        $connection = Connection::getConnection();
+        $stmt = $connection->query("SELECT * FROM product WHERE product_platform = 'Xbox';");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function findOneProductNintendo()
+    {
+        $connection = Connection::getConnection();
+        $stmt = $connection->query("SELECT * FROM product WHERE product_platform = 'Nintendo';");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function findOneProductSteam()
+    {
+        $connection = Connection::getConnection();
+        $stmt = $connection->query("SELECT * FROM product WHERE product_platform = 'Steam';");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function findAll()
     {
         $connection = Connection::getConnection();
