@@ -26,7 +26,7 @@ switch ($_GET['operation'])
     case 'edit':
         editProduct();
         break;
-    case 'find_one_ps4':
+    case 'find_one_playstation':
         findOneProductPlaystation();
         break;
     case 'find_one_xbox':
@@ -90,7 +90,7 @@ function listProduct()
             $_SESSION['list_products'] = $products;
             header('location:../View/list_products.php');
         } else {
-            Redirect::redirect(message: ['Não exite produtos cadastrados'], type: 'warning');
+            Redirect::redirect(message: ['No Momento nosso site não possui produtos da categoria selecionada'], type: 'warning');
         }
     } catch (PDOException $e) {
         Redirect::redirect("Erro Inesperado", type: 'error');
@@ -186,8 +186,8 @@ function findOneProductPlaystation()
         $dao = new ProductDAO();
         $products = $dao->findOneProductPlaystation();
         if ($products) {
-            $_SESSION['list_products_ps4'] = $products;
-            header('location:../View/list_products_ps4.php');
+            $_SESSION['list_products_playstation'] = $products;
+            header('location:../View/list_products_playstation.php');
         } else {
             Redirect::redirect(message: ['Não exite produtos cadastrados'], type: 'warning');
         }
