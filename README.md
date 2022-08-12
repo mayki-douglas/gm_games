@@ -6,10 +6,10 @@ Projeto de site de Loja de Games para o módulo de desenvolvimento de sistemas W
 
 Tecnologias usadas:
 
-*PHP (Back-end)*
-*Composer*
-*MySQL (Banco de Dados)*
-*NodeJS (instalação de frameworks para CSS)*
+*PHP (Back-end)*<br>
+*Composer*<br>
+*MySQL (Banco de Dados)*<br>
+*NodeJS (instalação de frameworks para CSS)*<br>
 *Tailwind CSS*
 
 ## Procedimentos antes da Execução do Projeto
@@ -18,7 +18,7 @@ Executar scripts para instalação do Composer e execução do script do Tailwin
 
 Digitar no terminal:
 
-*composer require monolog/monolog*
+*composer require monolog/monolog*<br>
 *npm run buildCSS*
 
 ## Detalhes sobre o Projeto
