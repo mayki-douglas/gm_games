@@ -21,13 +21,15 @@
     </div>
     </section>
     <article class="flex justify-center py-10 border-red-800">
-        <form action="../Controller/User.php?operation=login" method="POST">
+        <form action="../Controller/Client.php?operation=login" method="POST">
             <div>
-            <input name="login" class="flex border rounded to-blue-500">Login</input>
+                <label for="user">Usuário</label>
+                <input name="user" id="user" class="flex border rounded to-blue-500" type="text">
         </div>
         <br/>
         <div class="">
-            <input name="password" class="flex border rounded to-blue-500" type="password">Senha</input>
+            <label for="password">Senha</label>
+            <input name="password" id="password" class="flex border rounded to-blue-500" type="password">
             <div class="m-auto">
             <button type="submit" class="py-10">
                 <h2 class="w-48 border border-blue-700 rounded hover:bg-blue-400">
@@ -44,6 +46,9 @@
             Inscreva-se
             </a>
         </button>
+    </p>
+    <p>
+        <button>Novo Usuário</button>
     </p>
 </body>
 </html>

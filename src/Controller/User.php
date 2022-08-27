@@ -4,7 +4,8 @@ namespace APP\Controller;
 
 require_once '../../vendor/autoload.php';
 
-use APP\Model\DAO\UserDAO;
+// use APP\Model\DAO\UserDAO;
+use APP\Model\DAO\ClientDAO;
 use APP\Utils\Redirect;
 use PDOException;
 
@@ -28,7 +29,7 @@ function login()
     $login = $_POST['login'];
     $password = $_POST['password'];
 
-    $dao = new UserDAO();
+    $dao = new ClientDAO();
     $user = $dao->findUser($login);
 
     if ($user) {
