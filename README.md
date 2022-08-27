@@ -24,7 +24,7 @@ Digitar no terminal:
 ## Detalhes sobre o Projeto
 
 Site usando padrão *MVC* (Model, View, Controller), *DAO* (Data Access Object) com conectividade no banco de dados.
-Usamos métodos como *find_product_playstation* por exemplo com um script em SQL que retorne para o usuário uma listagem de produtos de somente uma plataforma de acordo com o Clique no botão.
+Usamos métodos como *find_product_playstation* por exemplo com um script em SQL que retorne para o usuário uma listagem de produtos de somente uma plataforma de acordo com o Clique no botão. Site com formulários para fazer o *CRUD (Create, Read, Update, Delete)*.
 
 Projeto de Site avaliado e focado mais para o funcionamento do Back-end, podendo no futuro ser reaproveitado e usado em um negócio futuro.
 
