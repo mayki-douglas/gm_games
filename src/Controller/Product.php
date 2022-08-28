@@ -109,7 +109,7 @@ function removeProduct()
             $dao = new ProductDAO();
             $result = $dao->delete($code);
                 if ($result) {
-                    Redirect::redirect(message: "O jogo $product_name foi removido", type: 'success');
+                    Redirect::redirect(message: "O jogo $productName foi removido", type: 'success');
                 } else {
             Redirect::redirect(message: ["Não foi possível remover o produto"], type: 'warning');
         }
