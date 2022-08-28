@@ -10,7 +10,7 @@
 <body>
     <?php
     session_start();
-    $clients = $_SESSION['client_info'];
+    $client = $_SESSION['client_info'];
     ?>
     <main class="flex justify-center">
         <form action="">
