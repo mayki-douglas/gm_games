@@ -551,6 +551,14 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.right-3 {
+  right: 0.75rem;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -599,8 +607,21 @@ video {
   width: 50%;
 }
 
+.w-3 {
+  width: 0.75rem;
+}
+
 .min-w-full {
   min-width: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.columns-1 {
+  -moz-columns: 1;
+       columns: 1;
 }
 
 .flex-col {
@@ -712,10 +733,6 @@ video {
 
 .to-blue-500 {
   --tw-gradient-to: #3b82f6;
-}
-
-.to-blue-50 {
-  --tw-gradient-to: #eff6ff;
 }
 
 .bg-cover {

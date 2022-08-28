@@ -7,6 +7,8 @@ use APP\Model\Client;
 use APP\Utils\Redirect;
 use PDOException;
 
+use function PHPSTORM_META\type;
+
 require_once '../../vendor/autoload.php';
 
 switch ($_GET['operation']) {
@@ -38,22 +40,22 @@ function login()
         Redirect::redirect(message: 'Requisição inválida!!!', type: 'error');
     }
 
-    $user = $_POST['user'];
-    $clientPassword = $_POST['password'];
+    $login = $_POST['login'];
+    $password = $_POST['password'];
 
-    try {
-        $dao = new ClientDAO();
-        $user = $dao->findUser($user);
+    $dao = new ClientDAO();
+    $user = $dao->findUser($login, $password);
 
-        if (password_verify($user, $clientPassword['password'])) {
+    if($login){
+        if(password_verify($password, $user['password'])){
             session_start();
-            $_SESSION['auth'] = $user;
+            $_SESSION['auth'] = $login;
             header('location:../../index.html');
-        } else {
-            echo "ERRO DE NOVO NESSA BUCETA";
+        }else{
+            Redirect::redirect(message: 'Senha incorreta', type:"error");
         }
-    } catch (PDOException $e) {
-        Redirect::redirect(message: "vsf", type: 'error');
+    } else {
+        Redirect::redirect(message:"Falha ao logar", type:"error");
     }
 }
 
@@ -65,7 +67,7 @@ function insertClient()
     }
 
     $clientUser = $_POST["user"];
-    $clientPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+    $clientPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $clientCpf = $_POST["cpf"];
     $clientName = $_POST["name"];
     $clientPhone = $_POST["phone"];
@@ -100,6 +102,19 @@ function insertClient()
 
 function listClient()
 {
+    try{
+        session_start();
+        $dao = new ClientDAO();
+        $client = $dao->findUser($user);
+        if($client){
+            $_SESSION['client_info'] = $client;
+            header('location:../View/perfil_user.php');
+        } else {
+            Redirect::redirect(message:["Nao foram encontrados usuarios"], type: "warning");
+        }
+    } catch (PDOException $e){
+        Redirect::redirect("Erro inesperado", type: "error");
+    }
 }
 
 function removeClient()

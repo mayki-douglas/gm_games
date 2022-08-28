@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/all.min.css">
     <title>Login</title>
 </head>
 <body>
@@ -23,22 +24,24 @@
     <article class="flex justify-center py-10 border-red-800">
         <form action="../Controller/Client.php?operation=login" method="POST">
             <div>
-                <label for="user">Usuário</label>
-                <input name="user" id="user" class="flex border rounded to-blue-500" type="text">
+                <label for="login">Usuário</label>
+                <input name="login" id="login" class="flex border rounded to-blue-500" type="text" placeholder="Digite seu Usuário">
         </div>
         <br/>
-        <div class="">
-            <label for="password">Senha</label>
-            <input name="password" id="password" class="flex border rounded to-blue-500" type="password">
-            <div class="m-auto">
-            <button type="submit" class="py-10">
-                <h2 class="w-48 border border-blue-700 rounded hover:bg-blue-400">
-                    Login
-                </h2>
-            </button>
-            </div>
+            <div>
+                <label for="password">Senha</label>
+                    <input name="password" id="password" type="password" class="flex border rounded to-blue-500" placeholder="Digite sua senha">
+                    <input type="checkbox" onclick="showPassword()"> Mostrar senha
+                <div class="m-auto">
+                    <button type="submit" class="py-10">
+                        <h2 class="w-48 border border-blue-700 rounded hover:bg-blue-400">
+                        Login
+                        </h2>
+                    </button>
+                </div>
             </div>
         </form>
+        <script type="text/javascript" src="js/login.js"></script>
     </article>
     <p class="flex justify-center">
         Não possui cadastro?
@@ -46,9 +49,6 @@
             Inscreva-se
             </a>
         </button>
-    </p>
-    <p>
-        <button>Novo Usuário</button>
     </p>
 </body>
 </html>
