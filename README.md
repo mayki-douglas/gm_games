@@ -6,11 +6,14 @@ Projeto de site de Loja de Games para o módulo de desenvolvimento de sistemas W
 
 Tecnologias usadas:
 
-*PHP (Back-end)*<br>
-*Composer*<br>
-*MySQL (Banco de Dados)*<br>
-*NodeJS (instalação de frameworks para CSS)*<br>
-*Tailwind CSS*
+<div style="display: inline-block">
+
+<img align="center" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg">
+<img align="center" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/composer/composer-original.svg" />
+<img align="center" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg">
+<img align="center" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" />
+<img align="center" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" />
+</div>
 
 ## Procedimentos antes da Execução do Projeto
 
